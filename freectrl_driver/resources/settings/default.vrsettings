@@ -1,0 +1,19 @@
+{
+  "driver_freectrl": {
+    "enable": true,
+    "model_number": "FreeTrackController 1",
+    "tracking_system_name": "freetrack_udp",
+    "pose_udp_port_left": 4242,
+    "pose_udp_port_right": 4243,
+    "input_udp_port_left": 4244,
+    "input_udp_port_right": 4245,
+    "bind_address": "0.0.0.0",
+    "pose_timeout_ms": 300
+  },
+  "driver_freectrl_left_controller": {
+    "serial_number": "FREETRK_L1"
+  },
+  "driver_freectrl_right_controller": {
+    "serial_number": "FREETRK_R1"
+  }
+}

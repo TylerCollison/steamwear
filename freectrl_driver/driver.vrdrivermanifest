@@ -1,0 +1,9 @@
+{
+  "file_format_version": 1,
+  "driver_name": "freectrl",
+  "driver_version": "1.0.0",
+  "min_api_version": 1,
+  "max_api_version": 1,
+  "driver_type": "controller",
+  "description": "FreeTrack UDP SteamVR Vive Controller Driver - Emulates Vive wands from OpenTrack UDP pose and custom JSON input streams"
+}

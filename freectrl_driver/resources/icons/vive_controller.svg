@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vive Controller Outline -->
+  <rect x="150" y="20" width="100" height="360" rx="50" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+
+  <!-- Trackpad -->
+  <circle cx="200" cy="130" r="40" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+  <circle cx="200" cy="130" r="35" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Trigger -->
+  <path d="M170 200 Q170 280 200 320 Q230 280 230 200 Z" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+  <path d="M185 220 Q185 270 200 300 Q215 270 215 220" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- System Button (top) -->
+  <circle cx="200" cy="50" r="15" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+
+  <!-- Application Menu Button -->
+  <circle cx="120" cy="80" r="12" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+
+  <!-- Grip Button (side) -->
+  <ellipse cx="60" cy="160" rx="10" ry="20" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+
+  <!-- Haptic area indicator (bottom) -->
+  <circle cx="200" cy="300" r="20" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Binding image points as small dots for reference -->
+  <circle cx="200" cy="50" r="4" fill="#00ffff" opacity="0.5"/><!-- system -->
+  <circle cx="120" cy="80" r="4" fill="#00ffff" opacity="0.5"/><!-- app menu -->
+  <circle cx="60" cy="160" r="4" fill="#00ffff" opacity="0.5"/><!-- grip -->
+  <circle cx="200" cy="220" r="4" fill="#00ffff" opacity="0.5"/><!-- trigger -->
+  <circle cx="200" cy="130" r="4" fill="#00ffff" opacity="0.5"/><!-- trackpad -->
+  <circle cx="200" cy="300" r="4" fill="#00ffff" opacity="0.5"/><!-- haptic -->
+</svg>
