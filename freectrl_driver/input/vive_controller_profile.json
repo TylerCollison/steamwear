@@ -1,0 +1,48 @@
+{
+  "jsonid": "input_profile",
+  "controller_type": "vive_controller",
+  "input_bindingui_mode": "controller_handed",
+  "input_bindingui_left": {
+    "image": "{freectrl}/icons/vive_controller.svg"
+  },
+  "input_bindingui_right": {
+    "image": "{freectrl}/icons/vive_controller.svg"
+  },
+  "input_source": {
+    "/input/system": {
+      "binding_image_point": [200, 50],
+      "type": "button",
+      "touch": false,
+      "order": 1
+    },
+    "/input/application_menu": {
+      "binding_image_point": [120, 80],
+      "type": "button",
+      "touch": false,
+      "order": 2
+    },
+    "/input/grip": {
+      "binding_image_point": [60, 160],
+      "type": "button",
+      "touch": false,
+      "order": 3
+    },
+    "/input/trigger": {
+      "binding_image_point": [200, 220],
+      "type": "trigger",
+      "order": 4
+    },
+    "/input/trackpad": {
+      "binding_image_point": [200, 130],
+      "type": "trackpad",
+      "touch": true,
+      "order": 5
+    },
+    "/output/haptic": {
+      "binding_image_point": [200, 300],
+      "type": "vibration",
+      "order": 6
+    }
+  },
+  "default_bindings": []
+}
