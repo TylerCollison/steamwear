@@ -1,0 +1,40 @@
+services:
+  freectrl-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: freectrl-dev:latest
+    container_name: freectrl-dev
+    volumes:
+      - .:/workspace/freectrl_driver
+      - ~/.gitconfig:/home/developer/.gitconfig:ro
+      - ~/.ssh:/home/developer/.ssh:ro
+    environment:
+      - CC=gcc-12
+      - CXX=g++-12
+      - OPENVR_HEADERS=/opt/openvr/headers
+    working_dir: /workspace/freectrl_driver
+    stdin_open: true
+    tty: true
+    # Uncomment for privileged debugging (e.g., USB device access)
+    # privileged: true
+    # devices:
+    #   - /dev/bus/usb:/dev/bus/usb
+
+  # Alternative: root user for debugging system-level issues
+  freectrl-dev-root:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: freectrl-dev:latest
+    container_name: freectrl-dev-root
+    volumes:
+      - .:/workspace/freectrl_driver
+    environment:
+      - CC=gcc-12
+      - CXX=g++-12
+      - OPENVR_HEADERS=/opt/openvr/headers
+    working_dir: /workspace/freectrl_driver
+    stdin_open: true
+    tty: true
+    user: root
