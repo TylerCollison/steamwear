@@ -2,6 +2,10 @@
 
 This file provides instructions and context for AI coding agents working on this project.
 
+## Build Container
+
+Use the following build container for building/testing/debugging: registry.home.com/system-utilities/container-registry/steamvr-build-container:latest
+
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:1105d646 -->
 ## Beads Issue Tracker
 
