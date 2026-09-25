@@ -56,7 +56,40 @@ Once inside the container:
 cd /workspace/freectrl_driver
 cmake -B build
 cmake --build build
+
+# Assemble the SteamVR driver folder layout (default: build/install/)
+cmake --install build
 ```
+
+This produces a shared library (`driver_freectrl.so` on Linux, `driver_freectrl.dll` on Windows) plus the assembled SteamVR driver layout:
+
+```
+build/install/drivers/freectrl/
+├── driver.vrdrivermanifest
+├── bin/linux64/driver_freectrl.so     (win64/driver_freectrl.dll on Windows, osx64/ on macOS)
+├── input/vive_controller_profile.json
+└── resources/
+    ├── icons/vive_controller.svg
+    └── settings/default.vrsettings
+```
+
+### OpenVR Headers
+
+Only OpenVR **headers** are needed at build time — the driver is dlopen'd by
+vrserver, which resolves symbols at load time, so nothing is linked against an
+OpenVR import lib. CMake locates the headers via `OPENVR_HEADERS_DIR`, checked
+in this order:
+
+1. The `OPENVR_HEADERS_DIR` CMake variable (`-DOPENVR_HEADERS_DIR=/path/to/openvr/headers`)
+2. The `OPENVR_HEADERS` environment variable (set to `/opt/openvr/headers` in the build container)
+3. An `openvr_headers/` symlink or copy next to `CMakeLists.txt`
+4. `/opt/openvr/headers` (as installed by the build container)
+
+Download the headers from [ValveSoftware/openvr](https://github.com/ValveSoftware/openvr/tree/master/headers) if none of the defaults apply.
+
+> **Note**: `src/driver_entry.cpp` is currently a minimal placeholder entry
+> point (exports `HmdDriverFactory`, reports `InterfaceNotFound`); the real
+> device provider and entry point land in workspace-qoj.6.
 
 ## Registry Push
 
@@ -109,11 +142,19 @@ The final image size is approximately **2.01 GB**, containing all necessary buil
 
 ```
 freectrl_driver/
+├── CMakeLists.txt          # Cross-platform CMake build (C++17, header-only OpenVR)
+├── cmake/                  # Build-time helper scripts (profile JSON validation)
 ├── Dockerfile              # Multi-stage Docker build
 ├── docker-compose.yml      # Docker Compose configuration
 ├── build.sh                # Build script with validation and registry push
 ├── entrypoint.sh           # Container entrypoint (handles commands and interactive shell)
-├── openvr_headers -> /opt/openvr/headers  # Symlink to OpenVR headers
+├── driver.vrdrivermanifest # SteamVR driver manifest
+├── src/                    # Driver sources (driver_entry.cpp placeholder for now)
+├── resources/
+│   ├── icons/vive_controller.svg
+│   └── settings/default.vrsettings
+├── input/vive_controller_profile.json
+├── openvr_headers -> /opt/openvr/headers  # Symlink to OpenVR headers (in image)
 └── README.md               # This file
 ```
 
